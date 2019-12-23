@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "binance/ruby/api"
+require "binance"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -1,6 +1,6 @@
-RSpec.describe Binance::Ruby::Api do
+RSpec.describe Binance::VERSION do
   it "has a version number" do
-    expect(Binance::Ruby::Api::VERSION).not_to be nil
+    expect(Binance::VERSION).not_to be nil
   end
 
   it "does something useful" do

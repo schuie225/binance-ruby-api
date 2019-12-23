@@ -1,10 +1,10 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "binance/ruby/api/version"
+require "binance/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "binance-ruby-api"
-  spec.version       = Binance::Ruby::Api::VERSION
+  spec.version       = Binance::VERSION
   spec.authors       = ["Liang Shi"]
   spec.email         = ["liang.shi@protonmail.com"]
 
