@@ -22,7 +22,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# market information
+Binance::Market.ping
+Binance::Market.server_time
+Binance::Market.exchange_info
+Binance::Market.orderbook(symbol: 'BTCUSDT', limit: 200)
+
+```
 
 ## Development
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Binance
   class Error < StandardError
     attr_reader :status, :message, :data
@@ -10,7 +12,7 @@ module Binance
 
     def initialize(status, data = {})
       @status = status
-      @message = data[:message]
+      @message = data[:msg]
       @data = data
     end
   end
