@@ -35,13 +35,7 @@ module Binance
         )
       end
 
-      def historical_trades(symbol:, limit: 500, from_id: '')
-        # params = {
-        #   symbol: symbol,
-        #   limit: limit,
-        #   from_id: from_id
-        # }.reject(&:empty?)
-
+      def historical_trades(symbol:, limit: 500, from_id: nil)
         Client.public_send(
           path: '/api/v3/historicalTrades',
           params: {
