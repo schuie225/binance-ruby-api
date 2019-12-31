@@ -29,6 +29,10 @@ Binance::Market.server_time
 Binance::Market.exchange_info
 Binance::Market.orderbook(symbol: 'BTCUSDT', limit: 200)
 
+ENV['BINANCE_PUBLIC_API_KEY'] = 'xxxxxx'
+# historical trades require public api key
+Binance::Market.historical_trades(symbol: 'BTCUSDT', limit: 5, from_id: 222256836)
+
 ```
 
 ## Development
