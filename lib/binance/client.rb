@@ -12,7 +12,35 @@ module Binance
         process(response)
       end
 
+      def private_send(method, path, params: {})
+        params.delete_if { |k, v| v.nil? }
+        params = params.merge(timestamp: timestamp)
+        params = params.merge(signature: signature(params: params))
+
+        case method
+        when :get
+          response = send(method, path, headers: build_headers, query: params)
+        else
+
+          response = if params.empty?
+                      send(method, path, headers: build_headers)
+                    else 
+                      send(method, path, headers: build_headers, body: params.to_json)
+                    end
+        end
+        process(response)
+      end
+
       private
+
+      def timestamp
+          Time.now.utc.strftime('%s%3N')
+      end
+
+      def signature(params:)
+        payload = params.map { |key, value| "#{key}=#{value}" }.join('&')
+        Authentication.signature(payload)
+      end
 
       def build_headers
         {

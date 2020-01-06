@@ -10,3 +10,5 @@ require 'binance/client'
 require 'binance/market'
 
 require 'binance/system'
+
+require 'binance/account'
