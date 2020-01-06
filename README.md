@@ -2,7 +2,6 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/binance/ruby/api`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -44,6 +43,12 @@ ENV['BINANCE_PUBLIC_API_KEY'] = 'xxxxxx'
 # historical trades require public api key
 Binance::Market.historical_trades(symbol: 'BTCUSDT', limit: 5, from_id: 222256836)
 
+# user information
+
+ENV['BINANCE_PUBLIC_API_KEY'] = 'xxxxxx'
+ENV['BINANCE_PRIVATE_API_KEY'] = 'yyyyy'
+# showing all coins information
+Binance::Account.all_coins
 ```
 
 ## Development
