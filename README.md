@@ -23,6 +23,9 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
+# system status
+Binance::System.status
+
 # market information
 Binance::Market.ping
 Binance::Market.server_time
