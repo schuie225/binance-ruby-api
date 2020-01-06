@@ -8,3 +8,5 @@ require 'binance/authentication'
 require 'binance/error'
 require 'binance/client'
 require 'binance/market'
+
+require 'binance/system'
