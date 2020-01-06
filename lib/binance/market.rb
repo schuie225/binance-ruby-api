@@ -62,6 +62,42 @@ module Binance
           ).compact
         )
       end
+
+      def avgPrice(symbol:)
+        Client.public_send(
+          path: '/api/v3/avgPrice',
+          params: {
+            symbol: symbol
+          }
+        )
+      end
+
+      def ticker(symbol: nil)
+        Client.public_send(
+          path: '/api/v3/ticker/24hr',
+          params: {
+            symbol: symbol
+          }.compact
+        )
+      end
+
+      def ticker_price(symbol: nil)
+        Client.public_send(
+          path: '/api/v3/ticker/price',
+          params: {
+            symbol: symbol
+          }.compact
+        )
+      end
+
+      def orderbook_ticker(symbol: nil)
+        Client.public_send(
+          path: '/api/v3/ticker/bookTicker',
+          params: {
+            symbol: symbol
+          }.compact
+        )
+      end
     end
   end
 end

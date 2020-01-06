@@ -30,6 +30,12 @@ Binance::Market.exchange_info
 Binance::Market.orderbook(symbol: 'BTCUSDT', limit: 200)
 Binance::Market.aggTrades(symbol: 'BTCUSDT', params: { limit: 10 })
 Binance::Market.klines(symbol: 'BTCUSDT', interval: '1h', params: {limit: 100})
+Binance::Market.ticker // get ticker for all symbols
+Binance::Market.ticker(symbol: 'BTCUSDT')
+Binance::Market.ticker_price
+Binance::Market.ticker_price(symbol:'BTCUSDT')
+Binance::Market.orderbook_ticker(symbol:'BTCUSDT')
+Binance::Market.orderbook_ticker
 
 ENV['BINANCE_PUBLIC_API_KEY'] = 'xxxxxx'
 # historical trades require public api key
