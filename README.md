@@ -28,6 +28,8 @@ Binance::Market.ping
 Binance::Market.server_time
 Binance::Market.exchange_info
 Binance::Market.orderbook(symbol: 'BTCUSDT', limit: 200)
+Binance::Market.aggTrades(symbol: 'BTCUSDT', params: { limit: 10 })
+Binance::Market.klines(symbol: 'BTCUSDT', interval: '1h', params: {limit: 100})
 
 ENV['BINANCE_PUBLIC_API_KEY'] = 'xxxxxx'
 # historical trades require public api key

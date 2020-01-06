@@ -45,6 +45,23 @@ module Binance
           }.compact
         )
       end
+
+      def aggTrades(symbol:, params: {})
+        Client.public_send(
+          path: '/api/v3/aggTrades',
+          params: params.merge(symbol: symbol).compact
+        )
+      end
+
+      def klines(symbol:, interval:, params: {})
+        Client.public_send(
+          path: '/api/v3/klines',
+          params: params.merge(
+            symbol: symbol,
+            interval: interval
+          ).compact
+        )
+      end
     end
   end
 end
