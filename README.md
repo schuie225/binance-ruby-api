@@ -51,7 +51,45 @@ ENV['BINANCE_PRIVATE_API_KEY'] = 'yyyyy'
 Binance::Account.all_coins
 
 Binance::Account.asset_details
-```
+##### Future Testnet #####
+Binance::Future::Testnet::Market.ping
+Binance::Future::Testnet::Market.server_time
+Binance::Future::Testnet::Market.depth(symbol: 'BTCUSDT', limit: 5)
+Binance::Future::Testnet::Market.depth(symbol: 'BTCUSDT', limit: 5)
+Binance::Future::Testnet::Market.trades(symbol: 'BTCUSDT', limit: 5)
+Binance::Future::Testnet::Market.aggTrades(symbol: 'BTCUSDT', limit: 5)
+
+# historical trades need api key
+ENV['BINANCE_PUBLIC_API_KEY'] = 'xxxx'
+Binance::Future::Testnet::Market.historicalTrades(symbol: 'BTCUSDT', limit: 5)
+
+## User Data
+Binance::Future::Testnet::Order.openorders(symbol: 'BTCUSDT')
+
+# test order, no real order placed
+Binance::Future::Testnet::Order.test(
+    symbol: 'BTCUSDT', 
+    side:'SELL', 
+    type:'LIMIT', 
+    quantity: 0.1, 
+    params: {
+        timeInForce: 'GTC',
+        price: 8200
+    }
+)
+
+# place real order
+Binance::Future::Testnet::Order.place_order(
+    symbol: 'BTCUSDT', 
+    side:'SELL', 
+    type:'LIMIT', 
+    quantity: 0.1, 
+    params: {
+        timeInForce: 'GTC',
+        price: 8200
+    }
+)
+
 
 ## Development
 

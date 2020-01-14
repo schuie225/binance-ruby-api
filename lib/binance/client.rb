@@ -21,11 +21,10 @@ module Binance
         when :get
           response = send(method, path, headers: build_headers, query: params)
         else
-
           response = if params.empty?
                       send(method, path, headers: build_headers)
                     else 
-                      send(method, path, headers: build_headers, body: params.to_json)
+                      send(method, path, headers: build_headers, query: params)
                     end
         end
         process(response)
