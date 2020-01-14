@@ -49,6 +49,8 @@ ENV['BINANCE_PUBLIC_API_KEY'] = 'xxxxxx'
 ENV['BINANCE_PRIVATE_API_KEY'] = 'yyyyy'
 # showing all coins information
 Binance::Account.all_coins
+
+Binance::Account.asset_details
 ```
 
 ## Development
