@@ -49,6 +49,20 @@ ENV['BINANCE_PUBLIC_API_KEY'] = 'xxxxxx'
 ENV['BINANCE_PRIVATE_API_KEY'] = 'yyyyy'
 # showing all coins information
 Binance::Account.all_coins
+
+
+# Future Testnet
+Binance::Future::Testnet::Market.ping
+Binance::Future::Testnet::Market.server_time
+Binance::Future::Testnet::Market.depth(symbol: 'BTCUSDT', limit: 5)
+Binance::Future::Testnet::Market.depth(symbol: 'BTCUSDT', limit: 5)
+Binance::Future::Testnet::Market.trades(symbol: 'BTCUSDT', limit: 5)
+Binance::Future::Testnet::Market.aggTrades(symbol: 'BTCUSDT', limit: 5)
+
+# historical trades need api key
+ENV['BINANCE_PUBLIC_API_KEY'] = 'xxxx'
+Binance::Future::Testnet::Market.historicalTrades(symbol: 'BTCUSDT', limit: 5)
+
 ```
 
 ## Development
