@@ -24,13 +24,28 @@ module Binance
                         Client.private_send(:post, '/fapi/v1/order', params: params)
                     end
 
+                    def query(symbol:, params: {})
+                        Client.private_send(:get, '/fapi/v1/order', params: merge_symbol(symbol, params))
+                    end
+
                     def cancel(symbol:, params: {})
                         Client.private_send(:delete, '/fapi/v1/order', params: merge_symbol(symbol, params))
                     end
 
-                    def openorders(symbol:, params: {})
+                    def cancel_all(symbol:)
+                        Client.private_send(:delete, '/fapi/v1/allOpenOrders', params: { symbol: symbol })
+                    end
+
+                    # TODO
+                    def cancel_mutil(symbol:, params:{})
+                        raise new Error("not implmented")
+                    end
+
+                    def open_orders(symbol:, params: {})
                         Client.private_send(:get, '/fapi/v1/openOrders', params: merge_symbol(symbol, params))
                     end
+
+                    # def all_orders()
 
                     def merge_symbol(symbol, params)
                         params.merge({
