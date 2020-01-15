@@ -64,7 +64,7 @@ ENV['BINANCE_PUBLIC_API_KEY'] = 'xxxx'
 Binance::Future::Testnet::Market.historicalTrades(symbol: 'BTCUSDT', limit: 5)
 
 ## User Data
-Binance::Future::Testnet::Order.openorders(symbol: 'BTCUSDT')
+Binance::Future::Testnet::Order.open_orders(symbol: 'BTCUSDT')
 
 # test order, no real order placed
 Binance::Future::Testnet::Order.test(
@@ -87,6 +87,22 @@ Binance::Future::Testnet::Order.place_order(
     params: {
         timeInForce: 'GTC',
         price: 8200
+    }
+)
+
+# query by order id
+Binance::Future::Testnet::Order.query(
+    symbol: 'BTCUSDT', 
+    params: {
+        orderId: '1128382585'
+    }
+)
+
+# query by client order id
+Binance::Future::Testnet::Order.query(
+    symbol: 'BTCUSDT', 
+    params: {
+        origClientOrderId: 'xxxxxxx'
     }
 )
 
