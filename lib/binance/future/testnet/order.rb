@@ -37,8 +37,9 @@ module Binance
                     end
 
                     # TODO
-                    def cancel_mutil(symbol:, params:{})
-                        raise new Error("not implmented")
+                    def batch_cancel(symbol:, params:{})
+                        Client.private_send(:delete, '/fapi/v1/batchOrders',
+                        params: merge_symbol(symbol, params))
                     end
 
                     def open_orders(symbol:, params: {})

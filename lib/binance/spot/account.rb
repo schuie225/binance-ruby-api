@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'uri'
 
 module Binance
   class Account
@@ -9,6 +10,10 @@ module Binance
 
       def asset_details
         Client.private_send(:get, '/wapi/v3/assetDetail.html')
+      end
+
+      def sub_account(email:)
+          Client.private_send(:get, '/wapi/v3/sub-account/assets.html', params: { email: email })
       end
     end
   end

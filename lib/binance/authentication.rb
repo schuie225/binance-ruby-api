@@ -11,6 +11,7 @@ module Binance
 
       def signature(payload)
         digest = OpenSSL::Digest::SHA256.new
+        puts payload
         OpenSSL::HMAC.hexdigest(digest, api_private_key, payload)
       end
     end

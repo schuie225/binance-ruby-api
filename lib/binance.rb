@@ -12,5 +12,7 @@ require 'binance/market'
 require 'binance/system'
 
 require 'binance/account'
+require 'binance/wallet'
 
+# require 'binance/spot/sport'
 require 'binance/future/testnet'

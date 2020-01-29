@@ -6,6 +6,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'httparty'
+gem 'hashie'
 
 group :test do
   gem 'rspec'
