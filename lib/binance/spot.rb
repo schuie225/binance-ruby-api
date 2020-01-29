@@ -12,5 +12,8 @@ module Binance
   end
 end
 
+require 'binance/spot/account'
 require 'binance/spot/system'
 require 'binance/spot/market'
+require 'binance/spot/order'
+require 'binance/spot/wallet'

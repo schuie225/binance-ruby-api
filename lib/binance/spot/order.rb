@@ -1,4 +1,5 @@
 module Binance
+  class Spot
     class Order
         class << self
             # testing place order
@@ -41,4 +42,5 @@ module Binance
             end
         end
     end
+  end
 end
