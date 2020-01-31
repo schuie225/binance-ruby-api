@@ -21,19 +21,19 @@ module Binance
       end
 
       def private_send(method, path, params: {})
-        params.delete_if { |k, v| v.nil? }
+        params.delete_if { |_k, v| v.nil? }
         params = params.merge(timestamp: timestamp)
 
         params = params.merge(signature: signature(params: params))
 
         case method
         when :get
-          response = send(method, path, headers: build_headers, query: params, :debug_output => $stdout) # :debug_output => $stdout
+          response = send(method, path, headers: build_headers, query: params, debug_output: $stdout) # :debug_output => $stdout
         else
           response = if params.empty?
-                      send(method, path, headers: build_headers)
-                    else
-                      send(method, path, headers: build_headers, query: params, :debug_output => $stdout)
+                       send(method, path, headers: build_headers)
+                     else
+                       send(method, path, headers: build_headers, query: params, debug_output: $stdout)
                     end
         end
         process(response)
@@ -42,23 +42,20 @@ module Binance
       private
 
       def timestamp
-          Time.now.utc.strftime('%s%3N')
+        Time.now.utc.strftime('%s%3N')
       end
 
       def signature(params:)
-
         payload = params.map do |key, value|
-
-        # if value.kind_of?(Array)
+          # if value.kind_of?(Array)
           # value = value.map { |item| '"' + "#{item}" + '"' }
           # value = "[#{value.join(',')}]"
-        # end
+          # end
 
           # value = "[#{value.join(',')}]" if value.kind_of?(Array)
           # value = value.to_json
           "#{key}=#{value}"
         end.join('&')
-
 
         payload = URI.escape(payload)
 

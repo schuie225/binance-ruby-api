@@ -13,7 +13,7 @@ module Binance
         end
 
         def sub_account(email:)
-            Client.private_send(:get, '/wapi/v3/sub-account/assets.html', params: { email: email })
+          Client.private_send(:get, '/wapi/v3/sub-account/assets.html', params: { email: email })
         end
       end
     end
